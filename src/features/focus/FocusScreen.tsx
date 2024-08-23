@@ -2,12 +2,12 @@ import globalStyles from '@src/styles/globalStyles';
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const ProfileScreen = () => {
+const FocusScreen = () => {
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.buttonText}>Profile</Text>
+      <Text style={globalStyles.buttonText}>Timing</Text>
     </View>
   );
 };
 
-export default ProfileScreen;
+export default FocusScreen;
