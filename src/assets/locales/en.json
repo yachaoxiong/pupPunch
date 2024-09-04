@@ -1,8 +1,11 @@
 {
-  "habit": "Habit",
-  "focus": "Focus",
-  "todo": "ToDo",
-  "spark": "Spark",
-  "profile": "Profile",
-  "language": "Language"
+  "习惯": "Habit",
+  "待办": "ToDo",
+  "今日": "Today",
+  "专注": "Focus",
+  "便签": "Spark",
+  "我的": "Profile",
+  "语言": "Language",
+  "上传新头像": "Upload New Avatar",
+  "设置": "Settings"
 }

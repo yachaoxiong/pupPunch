@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, {Path} from 'react-native-svg';
-import {IconProps} from '@src/types/interfaces'; // 请确保路径正确
 import {TouchableOpacity} from 'react-native';
+import {IconProps} from '@/types/interfaces';
 
 const AddCircleIcon: React.FC<IconProps> = ({
   color = '#5f6368',

@@ -1,6 +1,6 @@
 import React from 'react';
 import Svg, {Path} from 'react-native-svg';
-import {IconProps} from '@src/types/interfaces';
+import {IconProps} from '@/types/interfaces';
 
 const WeekViewIcon: React.FC<IconProps> = ({color = '#5f6368', size = 24}) => (
   <Svg height={size} viewBox="0 -960 960 960" width={size} fill={color}>

@@ -1,38 +1,43 @@
 import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
-import AddCircleIcon from '@src/components/svg-icons/AddCircleIcon';
-import CreateHabit from '@src/features/habit/CreateHabit';
+import {StyleSheet, SafeAreaView} from 'react-native';
+import AddCircleIcon from '@/components/svg-icons/AddCircleIcon';
+import CreateHabit from '@/features/habit/CreateHabit';
+import {screenHeight} from '@/styles/constant';
+import HabitTable from '@/features/habit/HabitTable';
 
 const HabitScreen = () => {
   const [isDrawerVisible, setDrawerVisible] = useState(false);
 
   const toggleDrawer = () => {
-    setDrawerVisible(prev => !prev); // 确保状态能够正确切换
+    setDrawerVisible(prev => !prev);
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.safeArea}>
+      <HabitTable />
       <AddCircleIcon
-        size={40}
+        size={screenHeight * 0.08}
         color="#6200ee"
         onPress={toggleDrawer}
         style={styles.fab}
       />
       <CreateHabit isVisible={isDrawerVisible} onClose={toggleDrawer} />
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  },
+  calendar: {
+    width: '100%',
+    height: '10%',
   },
   fab: {
     position: 'absolute',
-    right: 20,
-    bottom: 30,
+    right: '5%',
+    bottom: '7%',
   },
 });
 

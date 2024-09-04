@@ -1,76 +1,68 @@
-import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withSpring,
-} from 'react-native-reanimated';
+import React, {useRef, useState, useEffect} from 'react';
+import {View, StyleSheet} from 'react-native';
+import {Modalize} from 'react-native-modalize';
+import CheckIcon from '@/components/svg-icons/CheckIcon';
+import CloseIcon from '@/components/svg-icons/CloseIcon';
+import HabitForm from '@/features/habit/CreateHabit/HabitForm';
+import {screenHeight} from '@/styles/constant';
 
-interface CreateHabitDrawerProps {
+interface CreateHabitProps {
   isVisible: boolean;
   onClose: () => void;
 }
 
-const CreateHabit: React.FC<CreateHabitDrawerProps> = ({
-  isVisible,
-  onClose,
-}) => {
-  const translateY = useSharedValue(300); // 初始位置在屏幕外
+const CreateHabit: React.FC<CreateHabitProps> = ({isVisible, onClose}) => {
+  const modalRef = useRef<Modalize>(null);
+
+  const [formState, setFormState] = useState({
+    habitName: '',
+    habitIcon: '',
+    backgroundColor: '',
+    targetFrequency: 1,
+  });
+
+  const handleSaveHabit = () => {
+    onClose();
+  };
 
   useEffect(() => {
-    translateY.value = withSpring(isVisible ? 0 : 300, {
-      damping: 15,
-      stiffness: 100,
-    });
+    if (isVisible) {
+      modalRef.current?.open();
+    } else {
+      modalRef.current?.close();
+    }
   }, [isVisible]);
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{translateY: translateY.value}],
-    };
-  }, [translateY.value]);
-
-  if (!isVisible) {
-    return null;
-  }
-
   return (
-    <Animated.View style={[styles.drawer, animatedStyle]}>
-      <View style={styles.header}>
-        <Text style={styles.title}>New Habit</Text>
-        <Button title="❌" onPress={onClose} />
-      </View>
-      <View style={styles.form}>
-        <Text>Habit Form Goes Here</Text>
-      </View>
-    </Animated.View>
+    <Modalize
+      ref={modalRef}
+      modalHeight={screenHeight * 0.6}
+      onBackButtonPress={() => {
+        onClose();
+        return true;
+      }}
+      onOverlayPress={onClose}
+      HeaderComponent={
+        <View style={styles.header}>
+          <CloseIcon size={30} onPress={onClose} />
+          <CheckIcon size={30} onPress={handleSaveHabit} />
+        </View>
+      }>
+      {/* <HabitForm formState={formState} setFormState={setFormState} /> */}
+    </Modalize>
   );
 };
 
 const styles = StyleSheet.create({
-  drawer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: 300,
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
-    elevation: 10,
-    padding: 16,
-  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  form: {
-    marginTop: 16,
+    paddingVertical: '2%',
+    paddingHorizontal: '2%',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    backgroundColor: '#fff',
   },
 });
 

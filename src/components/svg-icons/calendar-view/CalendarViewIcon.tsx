@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, {Path} from 'react-native-svg';
 import {TouchableOpacity, GestureResponderEvent} from 'react-native';
-import {IconProps} from '@src/types/interfaces';
+import {IconProps} from '@/types/interfaces';
 
 const CalendarViewIcon: React.FC<IconProps> = ({
   color = '#5f6368',

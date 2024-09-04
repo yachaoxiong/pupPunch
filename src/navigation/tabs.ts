@@ -1,16 +1,14 @@
-// src/navigation/tabs.ts
+import HabitScreen from '@/features/habit/HabitScreen';
+import FocusScreen from '@/features/focus/FocusScreen';
+import ToDoScreen from '@/features/to-do/ToDoScreen';
+import SparkScreen from '@/features/spark/SparkScreen';
+import TodayScreen from '@/features/today/TodayScreen';
 
-import HabitScreen from '@src/features/habit/HabitScreen';
-import FocusScreen from '@src/features/focus/FocusScreen';
-import ToDoScreen from '@src/features/to-do/ToDoScreen';
-import SparkScreen from '@src/features/spark/SparkScreen';
-import TodayScreen from '@src/features/today/TodayScreen';
-
-import HabitTabIcon from '@src/components/svg-icons/navigation/HabitTabIcon';
-import FocusTabIcon from '@src/components/svg-icons/navigation/FocusTabIcon';
-import ToDoTabIcon from '@src/components/svg-icons/navigation/ToDoTabIcon';
-import SparkTabIcon from '@src/components/svg-icons/navigation/SparkTabIcon';
-import TodayTabIcon from '@src/components/svg-icons/navigation/TodayTabIcon';
+import HabitTabIcon from '@/components/svg-icons/navigation/HabitTabIcon';
+import FocusTabIcon from '@/components/svg-icons/navigation/FocusTabIcon';
+import ToDoTabIcon from '@/components/svg-icons/navigation/ToDoTabIcon';
+import SparkTabIcon from '@/components/svg-icons/navigation/SparkTabIcon';
+import TodayTabIcon from '@/components/svg-icons/navigation/TodayTabIcon';
 
 export const createTabs = (t: (key: string) => string) => [
   {
@@ -41,6 +39,6 @@ export const createTabs = (t: (key: string) => string) => [
     name: 'Spark',
     component: SparkScreen,
     icon: SparkTabIcon,
-    label: t('灵感'),
+    label: t('便签'),
   },
 ];

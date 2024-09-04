@@ -13,7 +13,6 @@ const layout = {
     flexDirection: 'column',
     justifyContent: 'center',
   },
-  // 可以根据需要添加更多布局样式
 };
 
 export default layout;

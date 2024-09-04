@@ -1,9 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
-import themeReducer from '@src/store/slices/themeSlice';
-import languageReducer from '@src/store/slices/languageSlice';
+import themeReducer from '@/store/slices/themeSlice';
+import languageReducer from '@/store/slices/languageSlice';
+import drawerReducer from '@/store/slices/drawerSlice';
 
 export const store = configureStore({
   reducer: {
+    drawer: drawerReducer,
     theme: themeReducer,
     language: languageReducer,
   },

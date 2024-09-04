@@ -1,16 +1,24 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {store} from '@src/store/store';
-import BottomTabNavigator from '@src/navigation/BottomTabNavigator';
+import {store} from '@/store/store';
+import {NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import 'react-native-reanimated'; // 导入 Reanimated
+import AppNavigator from '@/navigation/AppNavigator';
+import ProfileDrawer from '@/features/profile';
+import '@/utilize/i18n';
+import {ThemeProvider} from '@/utilize/ThemeProvider';
 
 const App = () => {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
-      <Provider store={store}>
-        <BottomTabNavigator />
-      </Provider>
+      <NavigationContainer>
+        <Provider store={store}>
+          <ThemeProvider>
+            <AppNavigator />
+            <ProfileDrawer />
+          </ThemeProvider>
+        </Provider>
+      </NavigationContainer>
     </GestureHandlerRootView>
   );
 };
