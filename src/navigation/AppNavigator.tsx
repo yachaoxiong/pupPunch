@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import BottomTabNavigator from '@/navigation/BottomTabNavigator';
-import Settings from '@/features/profile/Settings';
 import {createRouteParams} from '@/types/navigationTypes';
 import {useTranslation} from 'react-i18next';
 
@@ -17,11 +16,6 @@ const AppNavigator: React.FC = () => {
         name="BottomTabNavigator"
         component={BottomTabNavigator}
         options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Settings"
-        component={Settings}
-        options={{title: t('设置')}}
       />
     </Stack.Navigator>
   );

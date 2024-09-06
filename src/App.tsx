@@ -15,7 +15,6 @@ const App = () => {
         <Provider store={store}>
           <ThemeProvider>
             <AppNavigator />
-            <ProfileDrawer />
           </ThemeProvider>
         </Provider>
       </NavigationContainer>

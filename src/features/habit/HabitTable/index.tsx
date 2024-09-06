@@ -4,7 +4,6 @@ import dayjs, {Dayjs} from 'dayjs';
 import HabitList from './HabitList';
 import WeekCalendar from './WeekCalendar';
 import {habits, habitData} from '@/assets/mock/SelectedWeek';
-import HabitTitle from './HabitTitle';
 import {screenWidth} from '@/styles/constant';
 
 const HabitTable = () => {
@@ -23,7 +22,6 @@ const HabitTable = () => {
 
   return (
     <View style={styles.container}>
-      <HabitTitle />
       <View style={styles.weekCalendar}>
         <WeekCalendar />
       </View>
