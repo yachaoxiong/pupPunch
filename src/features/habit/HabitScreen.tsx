@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, SafeAreaView} from 'react-native';
+import {StyleSheet, SafeAreaView, View, Text} from 'react-native';
 import HabitTable from '@/features/habit/HabitTable';
 
 const HabitScreen = () => {

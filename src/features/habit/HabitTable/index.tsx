@@ -1,35 +1,28 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import dayjs, {Dayjs} from 'dayjs';
 import HabitList from './HabitList';
 import WeekCalendar from './WeekCalendar';
 import {habits, habitData} from '@/assets/mock/SelectedWeek';
 import {screenWidth} from '@/styles/constant';
+import Calendar from './WeekCalendar-new';
+import HabitTracker from './HabitListNew';
+import moment, {Moment} from 'moment';
 
 const HabitTable = () => {
-  const [selectedWeek, setSelectedWeek] = useState<Dayjs[]>([]);
-
-  useEffect(() => {
-    const week = [...Array(7)].map((_, i) =>
-      dayjs().startOf('week').add(i, 'day'),
-    );
-    setSelectedWeek(week);
-  }, []);
-
-  const handleWeekChange = (newWeek: Dayjs[]) => {
-    setSelectedWeek(newWeek);
-  };
+  const [selectedWeek, setSelectedWeek] = useState<number>(0);
 
   return (
     <View style={styles.container}>
       <View style={styles.weekCalendar}>
-        <WeekCalendar />
+        <Calendar weekOffset={selectedWeek} setWeekOffset={setSelectedWeek} />
       </View>
-      <HabitList
+      <HabitTracker weekOffset={selectedWeek} setWeekOffset={setSelectedWeek} />
+      {/* <HabitList
         habits={habits}
         habitData={habitData}
         selectedWeek={selectedWeek}
-      />
+      /> */}
     </View>
   );
 };

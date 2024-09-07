@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import AppNavigator from '@/navigation/AppNavigator';
 import ProfileDrawer from '@/features/profile';
+import 'intl-pluralrules';
 import '@/utilize/i18n';
 import {ThemeProvider} from '@/utilize/ThemeProvider';
 
